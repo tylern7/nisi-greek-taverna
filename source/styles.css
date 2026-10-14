@@ -1,0 +1,95 @@
+@import "tailwindcss";
+
+@theme {
+  --color-ink: #0c1212;
+  --color-ink-2: #16201f;
+  --color-panel: #121a1a;
+  --color-teal: #286868;
+  --color-teal-2: #1c4e4e;
+  --color-foam: #f4efe8;
+  --color-foam-2: #e7e0d4;
+  --color-brass: #c4a36a;
+  --color-brass-2: #a6854c;
+  --color-mist: #b7c0bb;
+  --color-line: #2a3838;
+  --color-line-soft: #d9d0c4;
+  --font-sans: "Outfit", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Fraunces", ui-serif, Georgia, serif;
+  --radius-card: 1.25rem;
+}
+
+@layer base {
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background: var(--color-ink);
+    color: var(--color-foam);
+    font-family: var(--font-sans);
+    text-rendering: optimizeLegibility;
+  }
+
+  ::selection {
+    background: var(--color-teal);
+    color: var(--color-foam);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-brass);
+    outline-offset: 3px;
+  }
+
+  section[id] {
+    scroll-margin-top: 4.75rem;
+  }
+
+  .hero-shade {
+    background: linear-gradient(
+      to top,
+      var(--color-ink) 0%,
+      color-mix(in srgb, var(--color-ink) 74%, transparent) 46%,
+      color-mix(in srgb, var(--color-ink) 28%, transparent) 100%
+    );
+  }
+
+  .frame-43 {
+    aspect-ratio: 4 / 3;
+  }
+
+  .frame-169 {
+    aspect-ratio: 16 / 9;
+  }
+
+  .frame-square {
+    aspect-ratio: 1;
+  }
+
+  .gallery-tile {
+    aspect-ratio: 1;
+  }
+
+  @media (min-width: 40rem) {
+    .gallery-tile {
+      aspect-ratio: 4 / 3;
+    }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}
